@@ -1,0 +1,74 @@
+# ═══════════════════════════════════════════════════════════════════
+# Universal Media Downloader - .gitignore
+# ═══════════════════════════════════════════════════════════════════
+
+# ── Python ─────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ── Virtual Environment ────────────────────────────────────────────
+.env
+venv/
+.venv/
+env/
+env.bak/
+venv.bak/
+
+# ── IDE / Editor ───────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── Logs ───────────────────────────────────────────────────────────
+logs/
+*.log
+*.log.*
+
+# ── Downloads ──────────────────────────────────────────────────────
+downloads/
+!downloads/.gitkeep
+
+# ── Testing ────────────────────────────────────────────────────────
+.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+coverage.xml
+
+# ── Type Checking ──────────────────────────────────────────────────
+.mypy_cache/
+.types/
+dmypy.json
+
+# ── Docker ─────────────────────────────────────────────────────────
+.docker/
+docker-compose.override.yml
+
+# ── OS Files ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+
+# ── Environment ────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+
+# ── Project Specific ───────────────────────────────────────────────
+*.db
+*.sqlite
+instance/
+.webassets-cache/

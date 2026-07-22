@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Media Downloader</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📥</span>
+                    <div class="logo-text">
+                        <h1>Universal Media Downloader</h1>
+                        <span class="subtitle">Download from YouTube, Vimeo, TikTok & more</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+                    <a href="/docs" class="api-link" target="_blank">API Docs</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- URL Input Section -->
+            <section class="card input-section">
+                <div class="input-group">
+                    <div class="url-input-wrapper">
+                        <input
+                            type="url"
+                            id="urlInput"
+                            class="url-input"
+                            placeholder="Paste a video URL here (YouTube, Vimeo, TikTok, etc.)"
+                            autocomplete="url"
+                            spellcheck="false"
+                        />
+                        <button class="btn btn-primary" id="validateBtn" title="Check if URL is supported">
+                            🔍 Validate
+                        </button>
+                    </div>
+                    <div id="urlFeedback" class="feedback"></div>
+                </div>
+
+                <div class="options-panel" id="optionsPanel" style="display:none;">
+                    <div class="option-row">
+                        <div class="option-group">
+                            <label for="mediaType">Media Type</label>
+                            <select id="mediaType" class="select-input">
+                                <option value="video_with_audio">Video + Audio</option>
+                                <option value="video">Video Only</option>
+                                <option value="audio">Audio Only</option>
+                            </select>
+                        </div>
+                        <div class="option-group" id="videoQualityGroup">
+                            <label for="videoQuality">Video Quality</label>
+                            <select id="videoQuality" class="select-input">
+                                <option value="best">Best Available</option>
+                                <option value="1080p">1080p (Full HD)</option>
+                                <option value="720p">720p (HD)</option>
+                                <option value="480p">480p (SD)</option>
+                                <option value="360p">360p</option>
+                                <option value="worst">Lowest</option>
+                            </select>
+                        </div>
+                        <div class="option-group" id="audioFormatGroup" style="display:none;">
+                            <label for="audioFormat">Audio Format</label>
+                            <select id="audioFormat" class="select-input">
+                                <option value="mp3">MP3</option>
+                                <option value="m4a">M4A</option>
+                                <option value="opus">Opus</option>
+                                <option value="flac">FLAC</option>
+                                <option value="wav">WAV</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-download" id="downloadBtn" disabled>
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Metadata Preview -->
+                <div id="metadataPreview" class="metadata-preview" style="display:none;">
+                    <div class="metadata-thumbnail">
+                        <img id="thumbnailImg" src="" alt="Thumbnail" />
+                    </div>
+                    <div class="metadata-info">
+                        <h3 id="mediaTitle">Title</h3>
+                        <div class="metadata-details">
+                            <span id="mediaUploader"></span>
+                            <span id="mediaDuration"></span>
+                            <span id="mediaExtractor"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Downloads Queue -->
+            <section class="card queue-section">
+                <div class="section-header">
+                    <h2>⬇️ Downloads</h2>
+                    <div class="queue-stats">
+                        <span id="totalCount">0 total</span>
+                        <button class="btn btn-sm" id="refreshBtn" title="Refresh list">🔄</button>
+                    </div>
+                </div>
+                <div id="downloadsList" class="downloads-list">
+                    <div class="empty-state">
+                        <span class="empty-icon">📂</span>
+                        <p>No downloads yet. Paste a URL above to get started!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Universal Media Downloader v1.0.0 &mdash; Open Source &middot; MIT License</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
