@@ -9,6 +9,9 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 # Import app for Vercel/WSGI servers
 from src.presentation.app import app
 
+# Export app for Vercel
+__all__ = ["app"]
+
 if __name__ == "__main__":
     import uvicorn
     
